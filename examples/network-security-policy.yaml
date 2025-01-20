@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkSecurityPolicy
+metadata:
+  name: ProtectMyAppsFromNewt
+spec:
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              project: newt
+  egress:
+    - to:
+        - podSelector:
+            matchLabels:
+              newt: enabled
