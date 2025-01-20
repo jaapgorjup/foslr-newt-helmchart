@@ -1,4 +1,4 @@
-# Helm Chart to quickly deploy Newt to your Kubernetes environment
+# Deploy Newt Wireguard client to your Kubernetes environment
 
 ## About Newt
 Newt is a client created for working together with Pangolin. This is useful to connect your own infrastructure to outside without the need of third party services like Cloudflare tunnels. This helm chart is created to allow you to quicklly add a Kubernetes workload to the Internet without needing to open up your own infrastructure. 
@@ -13,12 +13,14 @@ more: https://docs.fossorial.io/Pangolin/overview
 ## Install
 
 Before installing ensure you have installed the Pangolin server side or have an existing service that you can configure a Site on.
+If not check the documentation of Pangolin to get started quickly. I am using a small Hetzner cloud VM for it and a cloud-init script. 
+
 In that environment create a new Site and retrieve these variables:
 - id
 - secret
 - endpoint
 
-Install the helm chart on your Kubernetes with these commands:
+Clone the repository and install the helm chart on your Kubernetes with these commands:
 
 ```bash
 helm install newt -n newt --create-namespace /
@@ -27,8 +29,6 @@ helm install newt -n newt --create-namespace /
 --set newt.endpoint=https://xyz
 .
 ```
-
-@TODO setup repo as helm chart location
 
 ## Configuration
 
